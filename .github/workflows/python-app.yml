@@ -32,6 +32,8 @@ jobs:
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Install jq
+        run: sudo apt-get install -y jq
 
       - name: Create temporary file
         run: |
