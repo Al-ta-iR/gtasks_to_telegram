@@ -35,7 +35,8 @@ jobs:
 
       - name: Create temporary file
         run: |
-          echo "${{ secrets.SECRET }}" > token.json
+          echo "${{ secrets.SECRET }}" | jq '.' > token.json
+    #     echo "${{ secrets.SECRET }}" > token.json
 
 
       - name: Run main

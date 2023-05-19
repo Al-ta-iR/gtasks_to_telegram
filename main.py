@@ -29,7 +29,7 @@ def authenticate():
     """Аутентификация пользователя и получение учетных данных."""
 
     telegram.message_send('1')
-    with open('.github/workflows/token.json', 'r') as json_file:
+    with open('token.json', 'r') as json_file:
         # Загрузить содержимое файла в объект Python
         data = json.load(json_file)
     telegram.message_send('2')
