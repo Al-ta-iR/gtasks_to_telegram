@@ -32,7 +32,7 @@ def authenticate():
     telegram.message_send('1')
     with open('token.json', 'r') as json_file:
         # Загрузить содержимое файла в объект Python
-        data = json.load(json_file)
+        data = json_file.read()
     telegram.message_send('2')
     telegram.message_send(f'{str(data)}')
     telegram.message_send('3')
