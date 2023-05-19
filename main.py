@@ -35,7 +35,7 @@ def authenticate():
     return creds
 
 def print_all_tasks():
-    """Получение и печать всех задач."""
+    """Получение и печать всех задач"""
     # Аутентификация пользователя
     creds = authenticate()
 
