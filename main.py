@@ -27,11 +27,15 @@ SCOPES = ['https://www.googleapis.com/auth/tasks.readonly']
 def authenticate():
     """Аутентификация пользователя и получение учетных данных."""
 
+    telegram.message_send('1')
     with open('token.json', 'r') as json_file:
         # Загрузить содержимое файла в объект Python
         data = json.load(json_file)
+    telegram.message_send('2')
     telegram.message_send(str(data))
+    telegram.message_send('3')
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    telegram.message_send('4')
     return creds
 
 def print_all_tasks():
