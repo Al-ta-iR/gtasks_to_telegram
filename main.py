@@ -29,13 +29,13 @@ def authenticate():
     with open('token.json', 'r') as json_file:
         # Загрузить содержимое файла в объект Python
         data = str(json_file.read())
-    telegram.message_send(data[:3])
+    telegram.message_send(data[:10])
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
     telegram.message_send('4')
     return creds
 
 def print_all_tasks():
-    """Получение и печать всех задач."""
+    """Получение и печать всех задач"""
     # Аутентификация пользователя
     creds = authenticate()
 
