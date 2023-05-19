@@ -1,4 +1,5 @@
 
+import json
 import os
 import platform
 import os.path
@@ -15,18 +16,22 @@ is_os_windows = platform.system() == "Windows"
 if is_os_windows:
     env_path = os.path.join("secrets.env")  # ◄local ▼
     load_dotenv(env_path)
-    secret = os.getenv("secret")
+    SECRET = os.getenv("secret")
 else:
-    secret = os.environ.get("secret")  # online ▼
-telegram.message_send(str(secret))
+    SECRET = os.environ.get("secret")  # online ▼
+telegram.message_send(str(SECRET))
+telegram.message_send(str(type(SECRET)))
 
 SCOPES = ['https://www.googleapis.com/auth/tasks.readonly']
 
 def authenticate():
     """Аутентификация пользователя и получение учетных данных."""
 
+    with open('token.json', 'r') as json_file:
+        # Загрузить содержимое файла в объект Python
+        data = json.load(json_file)
+    telegram.message_send(str(data))
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    telegram.message_send(secret(creds))
     return creds
 
 def print_all_tasks():
