@@ -25,13 +25,17 @@ SCOPES = ['https://www.googleapis.com/auth/tasks.readonly']
 def authenticate():
     """Аутентификация пользователя и получение учетных данных."""
 
-    # telegram.message_send('1')
-    with open('token.json', 'r') as json_file:
-        # Загрузить содержимое файла в объект Python
-        data = str(json_file.read())
-    telegram.message_send(data[:10])
+    # В google console создаётся проект. Включаются Tasks API. 
+    # Создаются credentials формата oauth. 
+    # Скачивается файл credentials.json и вставляется в проект.
+    # Также создать token.json (или нет и он сам) и сделать в браузере верификацию (запустить проект и появится запрос автоматически)
+    # Удалить файлы, но из token.json взять данные и вставить их в секреты (НО В СЕКРЕТ github action нужно все кавычки сделать двойными и экранировать их)
+    # А также сделать в yaml файл до запуска кода такой блок:
+    #   - name: Create temporary file
+    #     run: |
+    #       echo "${{ secrets.SECRET }}" > token.json
+
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    telegram.message_send('4')
     return creds
 
 def print_all_tasks():
