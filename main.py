@@ -20,6 +20,7 @@ if is_os_windows:
 else:
     SECRET = os.environ.get("SECRET")  # online ▼
 telegram.message_send('0')
+print('ШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШ')
 # telegram.message_send(f'{type(SECRET)}')
 # telegram.message_send(f'{SECRET}')
 
