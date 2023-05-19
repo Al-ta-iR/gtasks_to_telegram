@@ -19,23 +19,19 @@ if is_os_windows:
     SECRET = os.getenv("SECRET")
 else:
     SECRET = os.environ.get("SECRET")  # online ▼
-telegram.message_send('0')
-print('ШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШШ')
-# telegram.message_send(f'{type(SECRET)}')
-# telegram.message_send(f'{SECRET}')
 
 SCOPES = ['https://www.googleapis.com/auth/tasks.readonly']
 
 def authenticate():
     """Аутентификация пользователя и получение учетных данных."""
 
-    telegram.message_send('1')
-    with open('token.json', 'r') as json_file:
-        # Загрузить содержимое файла в объект Python
-        data = str(json_file.read())
-    telegram.message_send(data[:3])
-    # telegram.message_send(f'{str(data)}')
-    telegram.message_send('3')
+    # telegram.message_send('1')
+    # with open('token.json', 'r') as json_file:
+    #     # Загрузить содержимое файла в объект Python
+    #     data = str(json_file.read())
+    # telegram.message_send(data[:3])
+    # # telegram.message_send(f'{str(data)}')
+    # telegram.message_send('3')
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
     telegram.message_send('4')
     return creds
