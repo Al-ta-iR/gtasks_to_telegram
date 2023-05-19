@@ -26,12 +26,10 @@ def authenticate():
     """Аутентификация пользователя и получение учетных данных."""
 
     # telegram.message_send('1')
-    # with open('token.json', 'r') as json_file:
-    #     # Загрузить содержимое файла в объект Python
-    #     data = str(json_file.read())
-    # telegram.message_send(data[:3])
-    # # telegram.message_send(f'{str(data)}')
-    # telegram.message_send('3')
+    with open('token.json', 'r') as json_file:
+        # Загрузить содержимое файла в объект Python
+        data = str(json_file.read())
+    telegram.message_send(data[:3])
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
     telegram.message_send('4')
     return creds
