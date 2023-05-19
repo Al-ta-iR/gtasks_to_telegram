@@ -20,8 +20,8 @@ if is_os_windows:
 else:
     SECRET = os.environ.get("SECRET")  # online ▼
 telegram.message_send('0')
-telegram.message_send(f'{type(SECRET)}')
-telegram.message_send(f'{SECRET}')
+# telegram.message_send(f'{type(SECRET)}')
+# telegram.message_send(f'{SECRET}')
 
 SCOPES = ['https://www.googleapis.com/auth/tasks.readonly']
 
