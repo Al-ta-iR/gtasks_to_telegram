@@ -16,7 +16,7 @@ is_os_windows = platform.system() == "Windows"
 if is_os_windows:
     env_path = os.path.join("secrets.env")  # ◄local ▼
     load_dotenv(env_path)
-    SECRET = os.getenv("secret")
+    SECRET = os.getenv("SECRET")
 else:
     SECRET = os.environ.get("secret")  # online ▼
 telegram.message_send(str(SECRET))
